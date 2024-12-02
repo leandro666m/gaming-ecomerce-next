@@ -9,6 +9,10 @@ export const ENV = {
             LOGIN: 'auth/local'
         },
         USER_ME: 'users/me',
+        USERS: 'users',
+        PLATFORMS: 'platforms',
+        ADDRESS: 'addresses',
+        GAME: 'games',
     },
     TOKEN: 'token'
 }

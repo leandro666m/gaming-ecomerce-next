@@ -16,8 +16,6 @@ export async function authFetch(url, params) {
     }else{
 
         if( !hasExpired(token)){
-            console.log('authFetch - Token válido')
-
             const paramsTemp = {
                 ...params,
                 headers: {

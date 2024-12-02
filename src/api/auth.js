@@ -26,7 +26,6 @@ export const RegisterApi =  async (data) => {
     
     
 export const LoginApi = async (data) => {
-        console.log("🍿 LoginApi");
 
         try{
             const url = `${ENV.API_URL}/${ENV.ENDPOINTS.AUTH.LOGIN}`;
