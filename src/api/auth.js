@@ -11,11 +11,8 @@ export const RegisterApi =  async (data) => {
             }
 
             const response = await fetch(url, params)
-            const result = await response.json()
 
-            if (response.status !== 200)  throw result
-            
-            return result
+            return await response.json()
 
         } catch (error){
             console.error("🐙 error: ", error);
@@ -36,11 +33,8 @@ export const LoginApi = async (data) => {
             }
 
             const response = await fetch(url, params)
-            const result = await response.json()
 
-            if (response.status !== 200)  throw result
-            
-            return result
+            return await response.json()
 
         } catch (error){
             console.error("🦜 error: ", error);

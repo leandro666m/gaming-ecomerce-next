@@ -10,13 +10,11 @@ import {Image} from "semantic-ui-react";
 export const GridGames = (props) => {
 
     const { games } = props;
-    console.log("=>(GridGames.js:12) games", games);
-
 
    return (
         <div className={styles.gridGames}>
             { map(games, (game) => (
-                <Link key={game.id} href={ game.attributes.slug } className={styles.game} >
+                <Link key={game.id} href={`/${game.attributes.slug}`} className={styles.game} >
                     <div>
                         <Image src={`${ENV.SERVER_HOST}${game.attributes.cover.data.attributes.url}`} />
                         { game.attributes.discount > 0 && (

@@ -39,11 +39,8 @@ export  const createAddress = async (data, userId) => {
         }
 
         const response = await authFetch( url, params )
-        const result = await response.json()
 
-        if (response.status !== 200) throw result
-
-        return result
+        return await response.json()
 
     } catch (error) {
         console.error("🍋 createAddress-error: ", error);
@@ -63,11 +60,8 @@ export const updateAddress = async (data, addressId) => {
         }
 
         const response = await authFetch( url, params )
-        const result = await response.json()
 
-        if (response.status !== 200) throw result
-
-        return result
+        return await response.json()
 
     } catch (error) {
         console.error("🍋 updateAddress-error: ", error);
@@ -83,11 +77,8 @@ export const deleteAddress = async (addressId) => {
         }
 
         const response = await authFetch( url, params )
-        const result = await response.json()
 
-        if (response.status !== 200) throw result
-
-        return result
+        return await response.json()
 
     } catch (error) {
         console.error("🍋 deleteAddress-error: ", error);

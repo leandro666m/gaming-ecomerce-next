@@ -6,16 +6,27 @@ import { Image, Icon, Input } from "semantic-ui-react";
 import {getAllPlatform} from "@/api";
 import classNames from "classnames";
 import {ENV} from "@/utils";
+import {useRouter} from "next/router";
 
 
 export function Menu( props ) {
 
     const { isOpenSearch } = props
     const [platforms, setPlatforms] = useState(null)
-    const [showSearch, setShowSearch] = useState(false)
+    const [showSearch, setShowSearch] = useState(isOpenSearch)
+    const [searchText, setSearchText] = useState('')
+    const router = useRouter()
 
-    const openCloseSearch = () => setShowSearch(  (prev) => !prev )
-    
+    const openCloseSearch = () => {
+        setShowSearch((prev) => !prev)
+    }
+
+    useEffect(() => {
+        if (showSearch) {
+            document.getElementById('search-games').focus()
+        }
+    }, [showSearch]);
+
     useEffect(() => {
         (async () => {
             try {
@@ -26,6 +37,16 @@ export function Menu( props ) {
             }
         } ) ()
     }, [])
+
+    useEffect(() => {
+        setSearchText( router.query.search || '' )
+    }, [  ]);
+
+    const onSearch = (text) => {
+        setSearchText(text)
+       router.replace(`/search?search=${text}`)
+    }
+
 
     return (
         <div className={styles.platform}>
@@ -42,10 +63,8 @@ export function Menu( props ) {
                 <Icon name='search' />
             </button>
 
-            <div className={classNames(styles.inputContainer, {
-                [styles.active]: showSearch,
-            } ) }>
-                <Input id='search-games' placeholder='Buscador' className={styles.input} focus={true}  />
+            <div className={classNames(styles.inputContainer, { [styles.active]: showSearch, } ) }>
+                <Input id='search-games' value={searchText} placeholder='Buscador' className={styles.input} focus={true} onChange={ (_,data)=> onSearch(data.value) } />
                 <Icon name='close' className={styles.closeInput} onClick={ openCloseSearch } />
             </div>
         </div>
