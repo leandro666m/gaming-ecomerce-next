@@ -13,7 +13,6 @@ export async function getServerSideProps(context) {
     const responsePlatform = await getPlatformBySlug( platform);
 
     const responseGames = await getGamesByPlatformSlug( platform, page);
-    console.log("=>(index.js:16) responseGames", responseGames);
 
     return {
         props: {

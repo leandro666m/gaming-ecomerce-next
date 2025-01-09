@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { Container, Image, Button } from "semantic-ui-react";
 import styles from "./Footer.module.scss";
+import classNames from "classnames";
 
 export function Footer() {
+
+
     return (
         <div className={styles.footer}>
             <Container>

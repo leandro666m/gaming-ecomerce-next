@@ -16,8 +16,6 @@ export const getAddressById = async (userId) => {
         return result
     } catch (error) {
         console.error("🍋 getAddress-error: ", error);
-        throw new Error(error)
-
     }
 
 }
@@ -44,7 +42,6 @@ export  const createAddress = async (data, userId) => {
 
     } catch (error) {
         console.error("🍋 createAddress-error: ", error);
-        console.error(error)
     }
 }
 
@@ -65,7 +62,6 @@ export const updateAddress = async (data, addressId) => {
 
     } catch (error) {
         console.error("🍋 updateAddress-error: ", error);
-        console.error(error)
     }
 }
 
@@ -82,6 +78,5 @@ export const deleteAddress = async (addressId) => {
 
     } catch (error) {
         console.error("🍋 deleteAddress-error: ", error);
-        console.error(error)
     }
 }

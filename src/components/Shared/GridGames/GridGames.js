@@ -28,7 +28,10 @@ export const GridGames = (props) => {
                     <div>
                         <span>{game.attributes.title} </span>
                         <span className={styles.price}>
-                            ${ fn.calcDiscountedPrice(game.attributes.price, game.attributes.discount) }
+                            {new Intl.NumberFormat('es-AR', {
+                                style: 'currency',
+                                currency: 'ARS'
+                            }).format(fn.calcDiscountedPrice(game.attributes.price, game.attributes.discount))}
                         </span>
                     </div>
                 </Link>

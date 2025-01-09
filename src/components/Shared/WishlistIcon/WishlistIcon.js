@@ -9,9 +9,9 @@ import {useAuth} from "@/hooks";
 
 export function WishlistIcon(props) {
 
-    const { gameId, className } = props;
-    const { user } = useAuth()
+    const { gameId, className, removeCallback } = props;
     const [hasWishlist, setHasWishlist] = useState(null);
+    const { user } = useAuth()
 
     useEffect(() => {
         ( async () => {
@@ -35,6 +35,10 @@ export function WishlistIcon(props) {
             await deleteFromMyWishlist(hasWishlist.id);
             setHasWishlist(false);
 
+            if (removeCallback) {
+                removeCallback();
+            } // para actualizar el compo cuando se elimina en la lista de deseos
+
         } catch(error) {
             console.error("💥 deleteWishlist-error: ", error)
             throw new Error(error);
@@ -47,7 +51,7 @@ export function WishlistIcon(props) {
 
     return (
         <Icon
-            name={hasWishlist ? 'heart' : 'heart outline'}
+            name={ hasWishlist ? "heart" : "heart outline"}
             onClick={hasWishlist ? deleteWishlist : addWishlist}
             className={ classNames(styles.wishlistIcon, { [className]: className, } ) } />
     );
