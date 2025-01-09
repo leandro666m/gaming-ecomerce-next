@@ -9,3 +9,5 @@ export * from './NoResult'
 export * from './Pagination'
 export * from './WishlistIcon'
 export * from './FullModal'
+
+export * from './Seo'

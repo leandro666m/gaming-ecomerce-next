@@ -1,7 +1,7 @@
 
 import { BasicLayout } from '@/layouts'
 import { Home } from '@/components/Home'
-import {BarTrust, Separator, BannerAd} from "@/components/Shared";
+import {BarTrust, Separator, BannerAd, Seo} from "@/components/Shared";
 import {Container} from "semantic-ui-react";
 
 
@@ -17,6 +17,7 @@ export default function HomePage() {
 
   return (
       <>
+          <Seo />
         <BasicLayout>
             <Home.BannerLastGamePublished />
 

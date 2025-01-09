@@ -1,7 +1,7 @@
 import { Container } from 'semantic-ui-react';
 import {size} from 'lodash';
 import {BasicLayout} from "@/layouts";
-import {GridGames, NoResult, Pagination, Separator} from "@/components/Shared";
+import {GridGames, NoResult, Pagination, Seo, Separator} from "@/components/Shared";
 
 
 
@@ -14,6 +14,8 @@ export default function PlatformPage(props) {
 
 
     return (
+        <>
+            <Seo title={ `Juegos de ${platform.attributes.title}` } />
         <BasicLayout relative>
             <Container>
                 <Separator height={50} />
@@ -33,6 +35,7 @@ export default function PlatformPage(props) {
 
             </Container>
         </BasicLayout>
+        </>
     );
 }
 

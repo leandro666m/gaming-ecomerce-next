@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import {useCart} from "@/hooks";
 import {getGameById} from "@/api";
 import {Cart} from '@/components/Cart'
+import {Seo} from "@/components/Shared";
 
 
 export default function CartPage(){
@@ -34,6 +35,8 @@ export default function CartPage(){
 
     return(
         <>
+            <Seo title="Carrito" />
+
             <CartLayout>
                 {currentStep === 1 && <Cart.StepOne games={games} />}
 

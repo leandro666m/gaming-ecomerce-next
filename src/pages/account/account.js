@@ -5,7 +5,7 @@ import {Tab} from "semantic-ui-react";
 import styles from './account.module.scss'
 import {useAuth} from "@/hooks";
 import {useRouter} from "next/router";
-import { Separator } from '@/components/Shared'
+import {Seo, Separator} from '@/components/Shared'
 import { useState } from "react";
 
 
@@ -79,6 +79,8 @@ export default function AccountPage() {
 
     return (
         <>
+            <Seo title='Mi cuenta' />
+
             <BasicLayout isContainer relative>
                 <Info />
 
