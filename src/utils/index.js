@@ -1,3 +1,3 @@
 export * from './constants';
-export * from './AuthFetch';
+export * from './authFetch';
 export * from './functions';
